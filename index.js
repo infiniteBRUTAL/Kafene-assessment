@@ -55,19 +55,23 @@ $(document).ready(() => {
             password: $('#sign-up-password').val()
         }
 
-        localStorage.setItem('user-details', JSON.stringify(mObj))
+        if(mObj.name != mObj.password) {
+            alert('PLease enter correct Credentials to Sign up!')
+        } else {
+            localStorage.setItem('user-details', JSON.stringify(mObj))
 
-        let loginForm = $('#login-form')
-        loginForm.addClass('active-form')
-        loginForm.removeClass('inactive-form')
+            let loginForm = $('#login-form')
+            loginForm.addClass('active-form')
+            loginForm.removeClass('inactive-form')
 
-        let signUpForm = $('#sign-up-form')
-        signUpForm.addClass('inactive-form')
-        signUpForm.removeClass('active-form')
+            let signUpForm = $('#sign-up-form')
+            signUpForm.addClass('inactive-form')
+            signUpForm.removeClass('active-form')
 
-        let formHeading = $('#form-heading')
-        formHeading.text('Sign Ip')
+            let formHeading = $('#form-heading')
+            formHeading.text('Sign Ip')
 
-        location.assign('./index.html')
+            location.assign('./index.html')
+        }
     })
 })
